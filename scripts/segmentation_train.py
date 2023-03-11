@@ -82,8 +82,8 @@ def main():
 
 def create_argparser():
     defaults = dict(
-        data_name = 'BRATS',
-        data_dir="../dataset/brats2020/training",
+        data_name = 'ISIC',
+        data_dir="../dataset/ISIC",
         schedule_sampler="uniform",
         lr=1e-4,
         weight_decay=0.0,
@@ -98,7 +98,21 @@ def create_argparser():
         fp16_scale_growth=1e-3,
         gpu_dev = "0",
         multi_gpu = None, #"0,1,2"
-        out_dir='./results/'
+        out_dir='./results/',
+        # 自己加的
+        image_size=256,
+        num_channels=128,
+        class_cond=False,
+        num_res_blocks=2,
+        num_heads=1,
+        learn_sigma=True,
+        use_scale_shift_norm=False,
+        attention_resolutions=16,
+        diffusion_steps=1000,
+        noise_schedule="linear",
+        rescale_learned_sigmas=False,
+        rescale_timesteps=False
+
     )
     defaults.update(model_and_diffusion_defaults())
     parser = argparse.ArgumentParser()
