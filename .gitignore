@@ -136,4 +136,4 @@ dmypy.json
 output
 data
 results
-./dataset
+dataset
